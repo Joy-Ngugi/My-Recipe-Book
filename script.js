@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Search functionality
-    document.getElementById("search-btn").addEventListener("click", () => {
+    document.getElementById("searchbtn").addEventListener("click", () => {
         const searchTerm = document.getElementById("search-bar").value.toLowerCase();
         const filteredRecipes = recipes.filter(recipe => recipe.title.toLowerCase().includes(searchTerm));
         const recipeList = document.getElementById("recipe-list");
@@ -185,122 +185,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // document.getElementById("back-btn").addEventListener("click", () => {
 //     displaySavedRecipes.classList.add("block");
 // });
-
-
-
-// let currentRecipe = null;
-// let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
-
-
-// function displayRecipes(recipes) {
-//     document.getElementById("recipe-list").innerHTML = "";
-//     recipes.forEach((recipe) => {
-//         const recipeCard = document.createElement("div");
-//         recipeCard.classList.add("recipe-card");
-//         recipeCard.innerHTML = `
-//             <img src="${recipe.image}" alt="${recipe.title}">
-//             <h3>${recipe.title}</h3>
-//             <button onclick="viewRecipe(${recipe.id})">View Recipe</button>
-//         `;
-//         document.getElementById("recipe-list").appendChild(recipeCard);
-//     });
-// }
-
-// // View a recipe's details
-// function viewRecipe(id) {
-//     const recipe = recipes.find((r) => r.id === id);
-//     if (recipe) {
-//         currentRecipe = recipe;
-//         document.getElementById("recipe-title").textContent = recipe.title;
-//         document.getElementById("recipe-img").src = recipe.image;
-//         document.getElementById("recipe-ingredients").innerHTML = recipe.ingredients.map((item) => `<li>${item}</li>`).join("");
-//         document.getElementById("recipe-instructions").textContent = recipe.instructions;
-//         document.getElementById("recipe-detail").classList.remove("hidden");
-//     }
-// }
-
-
-// function saveRecipe() {
-//     if (!savedRecipes.some((r) => r.id === currentRecipe.id)) {
-//         savedRecipes.push(currentRecipe);
-//         localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-//         alert("Recipe saved!");
-
-//         showSavedRecipes();
-//     } else {
-//         alert("Recipe is already saved.");
-//     }
-// }
-// document.getElementById("save-recipe-btn").addEventListener("click", saveRecipe);
-// // Show saved recipes
-// function showSavedRecipes() {
-//     document.getElementById("saved-recipeslist").innerHTML = "";
-//     savedRecipes.forEach((recipe) => {
-//         const recipeCard = document.createElement("div");
-//         recipeCard.classList.add("recipe-card");
-//         recipeCard.innerHTML = `
-//             <img src="${recipe.image}" alt="${recipe.title}">
-//             <h3>${recipe.title}</h3>
-//             <button onclick="removeRecipe(${recipe.id})">Remove Recipe</button>
-//         `;
-//         document.getElementById("saved-recipeslist").appendChild(recipeCard);
-//     });
-// }
-
-// // Remove a saved recipe
-// function removeRecipe(id) {
-//     savedRecipes = savedRecipes.filter((r) => r.id !== id);
-//     localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-//     showSavedRecipes();
-// }
-
- 
-// displayRecipes(recipes);
-// showSavedRecipes();
-
-// const mealList = document.getElementById('meal-list');
-// document.getElementById("searchbtn").addEventListener('click', getMeals);
-
-// function getMeals() {
-//     const recipeInput = document.getElementById('#search-bar').value.trim();
-
-    
-//     if (!recipeInput) {
-//         alert("Please enter an ingredient.");
-//         return;
-//     }
-
-    
-//     fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${recipeInput}`)
-//         .then(response => response.json())
-//         .then(data => {
-//             let html = "";
-
-//             if (data.meals) {
-//                 data.meals.forEach(meal => {
-//                     html += `
-//                         <div class="meal-item" data-id="${meal.idMeal}">
-//                             <div class="meal-img">
-//                                 <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-//                             </div>
-//                             <div class="meal-name">
-//                                 <h3>${meal.strMeal}</h3>
-//                                 <a href="#" class="recipe-btn">Get Recipe</a>
-//                             </div>
-//                         </div>
-//                     `;
-//                 });
-//             } else {
-//                 html = `<p>No meals found for '${recipeInput}'</p>`;
-//             }
-
-            
-//             mealList.innerHTML = html;
-//         })
-//         .catch(error => {
-//             console.error("Error fetching the meal data:", error);
-//             mealList.innerHTML = `<p>Failed to fetch meals. Please try again later.</p>`;
-//         });
-// }
 
  
